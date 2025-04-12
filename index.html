@@ -262,16 +262,16 @@
     const craftingRecipes = [
         {
             grid: [
-                'wood', 'wood', null,
-                'wood', 'wood', null,
+                'wood plank', 'wood plank', null,
+                'wood plank', 'wood plank', null,
                 null, null, null
             ],
             result: 'crafting table'
         },
         {
             grid: [
-                null, 'wood', 'wood',
-                null, 'wood', 'wood',
+                null, 'wood plank', 'wood plank',
+                null, 'wood plank', 'wood plank',
                 null, null, null
             ],
             result: 'crafting table'
@@ -279,16 +279,16 @@
         {
             grid: [
                 null, null, null,
-                'wood', 'wood', null,
-                'wood', 'wood', null
+                'wood plank', 'wood plank', null,
+                'wood plank', 'wood plank', null
             ],
             result: 'crafting table'
         },
         {
             grid: [
                 null, null, null,
-                null, 'wood', 'wood',
-                null, 'wood', 'wood'
+                null, 'wood plank', 'wood plank',
+                null, 'wood plank', 'wood plank'
             ],
             result: 'crafting table'
         },
@@ -555,7 +555,7 @@
         console.log(currentCraftingGrid)
         for (const recipe of craftingRecipes) {
             if (arraysAreEqual(recipe.grid, currentCraftingGrid)) {
-                if((!inventory["crafting table"] && recipe.result == "crafting table") || (inventory["crafting table"]==1 && recipe.result != "crafting table")){
+                if(((!inventory["crafting table"] && recipe.result == "crafting table") || (inventory["crafting table"]==1 && recipe.result != "crafting table")) || recipe.result == "wood plank"){
                     craftingResult.textContent = `You crafted: ${recipe.result}!`;
                     var addOn = 1
                     if(recipe.result == "wood plank"){addOn = 4}
